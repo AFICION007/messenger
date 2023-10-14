@@ -1,0 +1,19 @@
+.main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.call {
+    width: 20px;
+    height: 20px;
+    color: white;
+}
