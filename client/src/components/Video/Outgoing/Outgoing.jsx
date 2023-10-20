@@ -3,6 +3,7 @@ import "./styles.css";
 
 const Outgoing = ({ otherUserId, setPage }) => {
 	const handleCancelCall = () => {
+		otherUserId.current = "";
 		setPage("join");
 	};
 

@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-const Join = ({ callerId, otherUserId, setPage }) => {
+const Join = ({ callerId, otherUserId, setPage, peerConnection, socket }) => {
 	const [calleeId, setCalleeId] = useState("");
 
-	const handleCall = () => {
+	const handleCall = async (event) => {
+		event.preventDefault();
 		otherUserId.current = calleeId;
+
+		const offer = await peerConnection.current.createOffer();
+		await peerConnection.current.setLocalDescription(offer);
+
+		socket.emit("call", {
+			calleeId,
+			offer: peerConnection.current.localDescription,
+		});
+
 		setPage("outgoing");
 	};
 

@@ -1,7 +1,15 @@
 import React from "react";
 
-const Incoming = ({ otherUserId, setPage }) => {
-	const handleAcceptCall = () => {
+const Incoming = ({ otherUserId, setPage, socket, peerConnection }) => {
+	const handleAcceptCall = async () => {
+		const answer = await peerConnection.current.createAnswer();
+		await peerConnection.current.setLocalDescription(answer);
+
+		socket.emit("acceptCall", {
+			callerId: otherUserId.current,
+			answer: peerConnection.current.localDescription,
+		});
+
 		setPage("callroom");
 	};
 

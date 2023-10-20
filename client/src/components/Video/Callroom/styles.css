@@ -1,0 +1,18 @@
+.remote_video{
+    width: 55%;
+    height: 65%;
+    background-color: rgb(244, 244, 244);
+    border-radius: 10px;
+}
+
+.local_video{
+    width: 15%;
+    height: 20%;
+    background-color: rgb(216, 216, 216);
+    border-radius: 5px;
+    position: absolute;
+    right: calc(45%/2 + 10px);
+    bottom: calc(35%/2 + 10px);
+    object-fit: cover;
+}
+
